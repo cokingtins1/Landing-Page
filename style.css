@@ -1,25 +1,41 @@
 
-
+* {
+    box-sizing: border-box;
+}
 
 body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px auto 50px;
+    grid-template-areas: "hd1 hd2" 
+                         "s1a s1b" 
+                         "s2a s2b" 
+                         "s3a s3b" 
+                         "s4a s4b" 
+                         "ft ft";
+    grid-auto-flow: row;
+    gap: 0px;
+    
 }
 
 header {
-    width: 100%;
-    height:32px;
+    /* width: 100%; */
+    
     background-color: #1F2937;
     color: white;
-    display: flex;
-    justify-content: space-between ;
+    padding: 10px 10%;
+    grid-area: hd1 hd2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    /* grid-row-start: 1;
+    grid-row-end: 2; */
+    display:flex;
+    justify-content: space-between; 
     align-items: center;
-    padding: 20px 10%;
+
 }
 
 .header-logo{
@@ -27,6 +43,14 @@ header {
     font-weight: bold;
     font-size: 24px;
     color: #f9faf8;
+    padding: 10px;
+    grid-area: hd1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+
 }
 
 li, a {
@@ -38,6 +62,11 @@ li, a {
 
 .nav-links {
     list-style: none;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-area: hd2;
+    display:flex;
+    justify-content: center;
 }
 
 .nav-links li {
@@ -53,14 +82,49 @@ li, a {
     color: aqua;
 }
 
-section {
-    display: flex;
-    flex-direction: row;
+.first-section {
     background-color: #1F2937;
-}
-
-.upper-section {
     color: #E5E7EB;
-    display: flex;
+    grid-area: s1a; 
+    padding: 20px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;  
+}
+
+.second-section {
+    background-color: blue;
+    color: #E5E7EB;
+    grid-area: s2a s2b; 
+    padding: 20px;   
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.third-section {
+    background-color: red;
+    color: #E5E7EB;
+    grid-area: s3a; 
+    padding: 20px;   
+    grid-row-start: 5;
+    
+}
+
+.fourth-section {
+    background-color: purple;
+    color: #E5E7EB;
+    grid-area: s4a; 
+    padding: 20px;   
+    grid-row-start: 6;
 
 }
+
+footer {
+    background-color: orange;
+    grid-area: ft;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    
+}
+
